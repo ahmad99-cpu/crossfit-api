@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\BookingResource;
 use App\Models\booking;
@@ -9,7 +9,7 @@ use App\Http\Requests\UpdatebookingRequest;
 
 class BookingController extends Controller
 {
-  
+
     public function index()
     {
         return BookingResource::collection(booking::all());
