@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoregymClassRequest extends FormRequest
+class StoreproductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,9 @@ class StoregymClassRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'description' => 'required|string',
+            'photo' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'price' => 'required|numeric',
         ];
     }
 }

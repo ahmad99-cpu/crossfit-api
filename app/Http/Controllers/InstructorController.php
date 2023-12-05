@@ -2,85 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\InstructorResource;
 use App\Models\instructor;
 use App\Http\Requests\StoreinstructorRequest;
 use App\Http\Requests\UpdateinstructorRequest;
 
 class InstructorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return InstructorResource::collection(instructor::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreinstructorRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreinstructorRequest $request)
     {
-        //
+        $instructor = instructor::create($request->validated());
+        return InstructorResource::make($instructor);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\instructor  $instructor
-     * @return \Illuminate\Http\Response
-     */
     public function show(instructor $instructor)
     {
-        //
+        return InstructorResource::make($instructor);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\instructor  $instructor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(instructor $instructor)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateinstructorRequest  $request
-     * @param  \App\Models\instructor  $instructor
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateinstructorRequest $request, instructor $instructor)
     {
-        //
+        $instructor->update($request->validated());
+        return InstructorResource::make($instructor);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\instructor  $instructor
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(instructor $instructor)
     {
-        //
+        $instructor->delete();
+        return response()->noContect();
     }
 }

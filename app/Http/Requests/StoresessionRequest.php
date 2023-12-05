@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoregymClassRequest extends FormRequest
+class StoresessionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,10 @@ class StoregymClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'startTime' => 'required|string',
+            'endTime' => 'required|string',
+            'instructor_id' => 'required|exists:insturctors,id',
+            'gym_classes_id' => 'required|exists:gym_classes,id',
         ];
     }
 }

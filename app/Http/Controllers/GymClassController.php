@@ -2,85 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GymClassResource;
 use App\Models\gymClass;
 use App\Http\Requests\StoregymClassRequest;
 use App\Http\Requests\UpdategymClassRequest;
 
 class GymClassController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return GymClassResource::collection(gymClass::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoregymClassRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoregymClassRequest $request)
     {
-        //
+        $gymClass = gymClass::create($request->validated());
+
+        return GymClassResource::make($class);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\gymClass  $gymClass
-     * @return \Illuminate\Http\Response
-     */
     public function show(gymClass $gymClass)
     {
-        //
+        return GymClassResource::make($gymClass);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\gymClass  $gymClass
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(gymClass $gymClass)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdategymClassRequest  $request
-     * @param  \App\Models\gymClass  $gymClass
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdategymClassRequest $request, gymClass $gymClass)
     {
-        //
+        $gymClass->update($request->validated());
+        return GymClassResource::make($gymClass);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\gymClass  $gymClass
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(gymClass $gymClass)
     {
-        //
+        $gymClass->delete();
+        return response()->noContent();
     }
 }

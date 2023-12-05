@@ -24,7 +24,8 @@ class StoreinstructorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'phoneNumber' => 'required|string',
         ];
     }
 }
