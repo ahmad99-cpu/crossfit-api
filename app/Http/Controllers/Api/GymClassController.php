@@ -7,35 +7,29 @@ use App\Models\gymClass;
 use App\Http\Requests\StoregymClassRequest;
 use App\Http\Requests\UpdategymClassRequest;
 
-class GymClassController extends Controller
-{
+class GymClassController extends Controller {
 
-    public function index()
-    {
-        return GymClassResource::collection(gymClass::all());
-    }
+	public function index() {
+		return GymClassResource::collection(gymClass::all());
+	}
 
-    public function store(StoregymClassRequest $request)
-    {
-        $gymClass = gymClass::create($request->validated());
+	public function store(StoregymClassRequest $request) {
+		$gymClass = gymClass::create($request->validated());
 
-        return GymClassResource::make($class);
-    }
+		return GymClassResource::make($gymClass);
+	}
 
-    public function show(gymClass $gymClass)
-    {
-        return GymClassResource::make($gymClass);
-    }
+	public function show(gymClass $gymClass) {
+		return GymClassResource::make($gymClass);
+	}
 
-    public function update(UpdategymClassRequest $request, gymClass $gymClass)
-    {
-        $gymClass->update($request->validated());
-        return GymClassResource::make($gymClass);
-    }
+	public function update(UpdategymClassRequest $request, gymClass $gymClass) {
+		$gymClass->update($request->validated());
+		return GymClassResource::make($gymClass);
+	}
 
-    public function destroy(gymClass $gymClass)
-    {
-        $gymClass->delete();
-        return response()->noContent();
-    }
+	public function destroy(gymClass $gymClass) {
+		$gymClass->delete();
+		return response()->noContent();
+	}
 }
