@@ -16,8 +16,8 @@ class MemberClassResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'members_id' => MemberResource::make($this->id),
-            'sessions_id' => SessionResource::make($this->id),
+            'member' => MemberResource::make($this->member),
+            'session' => SessionResource::make($this->session),
         ];
     }
 }

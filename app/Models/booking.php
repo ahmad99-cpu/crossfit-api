@@ -12,13 +12,14 @@ class booking extends Model
     protected $fillable = ['id', 'personal_trainer_id', 'member_id', 'created_at', 'updated_at'];
     protected $table = 'bookings';
 
+
     public function personalTrainer()
     {
-        return $this->belongsTo(PersonalTrainer::class);
+        return $this->belongsTo(PersonalTrainer::class, 'personal_trainer_id');
     }
 
     public function member()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class, 'member_id');
     }
 }

@@ -12,7 +12,7 @@ class MemberClassController extends Controller
 
     public function index()
     {
-        return MemberClassResource::collection(memberClass:all());
+        return MemberClassResource::collection(memberClass::all());
     }
 
     public function store(StorememberClassRequest $request)

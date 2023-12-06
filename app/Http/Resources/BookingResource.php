@@ -16,8 +16,8 @@ class BookingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'personal_trainer_id' => PersonalTrainerResource::make($this->id),
-            'members_id' => MemberResource::make($this->id),
+            'personal_trainer_id' => PersonalTrainerResource::make($this->personalTrainer),
+            'member_id' => MemberResource::make($this->member),
         ];
     }
 }

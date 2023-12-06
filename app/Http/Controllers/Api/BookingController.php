@@ -20,9 +20,10 @@ class BookingController extends Controller {
     }
 
 
-	public function show(booking $booking) {
-		return BookingResource::make($booking);
-	}
+	public function show(booking $booking)
+    {
+        return BookingResource::make($booking);
+    }
 
 
 	public function update(UpdatebookingRequest $request, booking $booking) {
