@@ -9,11 +9,7 @@ use App\Http\Requests\UpdatesessionRequest;
 
 class SessionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return SessionResource::collection(session::all());
@@ -23,7 +19,8 @@ class SessionController extends Controller
     public function store(StoresessionRequest $request)
     {
         $session = session::create($request->validated());
-        return SessionResource::make($session);
+        // return SessionResource::make($session);
+        return new SessionResource($session);
     }
 
 

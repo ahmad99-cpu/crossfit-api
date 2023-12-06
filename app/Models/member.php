@@ -11,4 +11,9 @@ class member extends Model
 
     protected $fillable = ['id', 'name', 'phoneNumber', 'email', 'password', 'created_at', 'updated_at'];
     protected $table = 'members';
+
+    public function gymClasses()
+    {
+        return $this->hasMany(memberClass::class, 'member_id');
+    }
 }

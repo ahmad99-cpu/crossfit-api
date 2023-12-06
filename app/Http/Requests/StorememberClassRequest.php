@@ -24,8 +24,8 @@ class StorememberClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'members_id' => 'required|exists:members,id',
-            'sessions_id' => 'required|exists:sessions,id',
+            'member_id' => 'required|exists:members,id',
+            'session_id' => 'required|exists:sessions,id',
         ];
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('personal_trainer_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('members_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('member_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

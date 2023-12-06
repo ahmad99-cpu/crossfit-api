@@ -25,7 +25,7 @@ class StorebookingRequest extends FormRequest
     {
         return [
             'personal_trainer_id' => 'required|exists:personal_trainers,id',
-            'members_id' => 'required|exists:members,id',
+            'member_id' => 'required|exists:members,id',
         ];
     }
 }

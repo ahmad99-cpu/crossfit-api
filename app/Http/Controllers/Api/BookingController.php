@@ -18,7 +18,8 @@ class BookingController extends Controller
     public function store(StorebookingRequest $request)
     {
         $booking = booking::create($request->validated());
-        return BookingResource::make($booking);
+        // return BookingResource::make($booking);
+        return new BookingResource($booking);
     }
 
 

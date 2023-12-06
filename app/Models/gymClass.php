@@ -11,4 +11,5 @@ class gymClass extends Model
 
     protected $fillable= ['id', 'name', 'created_at', 'updated_at'];
     protected $table = 'gym_classes';
+
 }

@@ -6,18 +6,15 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class MemberClassResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+
     public function toArray($request)
     {
         return [
             'id' => $this->id,
-            'members_id' => MemberResource::make($this->id),
-            'sessions_id' => SessionResource::make($this->id),
+            // 'member_id' => MemberResource::make($this->id),
+            // 'session_id' => SessionResource::make($this->id),
+            'member_id' => $this->member_id,
+            'session_id' => $this->session_id,
         ];
     }
 }

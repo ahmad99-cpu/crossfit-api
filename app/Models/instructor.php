@@ -11,4 +11,5 @@ class instructor extends Model
 
     protected $fillable = ['id', 'name', 'phoneNumber', 'created_at', 'updated_at'];
     protected $table = 'instructors';
+
 }

@@ -35,6 +35,6 @@ class InstructorController extends Controller
     public function destroy(instructor $instructor)
     {
         $instructor->delete();
-        return response()->noContect();
+        return response()->noContent();
     }
 }

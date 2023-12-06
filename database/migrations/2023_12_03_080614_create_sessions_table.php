@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('startTime');
             $table->string('endTime');
             $table->foreignId('instructor_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('gym_classes_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('gym_class_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
