@@ -7,7 +7,6 @@ use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\PersonalTrainerController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\MemberClassController;
-use App\Http\Controllers\Api\BookingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
