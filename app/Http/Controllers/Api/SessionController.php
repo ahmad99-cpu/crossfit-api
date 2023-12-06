@@ -24,22 +24,19 @@ class SessionController extends Controller
     }
 
 
-    public function show(session $session)
-    {
-        return SessionResource::make($session);
-    }
+	public function show(session $session) {
+		return SessionResource::make($session);
+	}
 
 
-    public function update(UpdatesessionRequest $request, session $session)
-    {
-        $session->update($request->validated());
-        return SessionResource::make($session);
-    }
+	public function update(UpdatesessionRequest $request, session $session) {
+		$session->update($request->validated());
+		return SessionResource::make($session);
+	}
 
 
-    public function destroy(session $session)
-    {
-        $session->delete();
-        return response()->noContent();
-    }
+	public function destroy(session $session) {
+		$session->delete();
+		return response()->noContent();
+	}
 }

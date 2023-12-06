@@ -1,8 +1,9 @@
 <?php
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\GymClassController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\MemberController;
-use App\Http\Controllers\Api\InsructorController;
+use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\PersonalTrainerController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\MemberClassController;
@@ -24,5 +25,5 @@ Route::apiResource('/bookings', BookingController::class);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
