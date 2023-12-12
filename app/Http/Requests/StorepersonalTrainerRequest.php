@@ -25,7 +25,7 @@ class StorePersonalTrainerRequest extends FormRequest
 	{
 		return [
 			'name' => 'required|string',
-			'phoneNumber' => 'required|string',
+			'phone_number' => 'required|string',
 		];
 	}
 }

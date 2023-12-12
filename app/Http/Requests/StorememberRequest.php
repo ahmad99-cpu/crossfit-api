@@ -25,7 +25,7 @@ class StoreMemberRequest extends FormRequest
 	{
 		return [
 			'name' => 'required|string',
-			'phoneNumber' => 'required|string',
+			'phone_number' => 'required|string',
 			'email' => 'required|email',
 			'password' => 'required|string',
 		];
