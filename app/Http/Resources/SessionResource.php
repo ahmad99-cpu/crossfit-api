@@ -12,6 +12,7 @@ class SessionResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'day' => $this->day,
             'startTime' => $this->startTime,
             'endTime' => $this->endTime,
             // 'instructor_id' => InstructorResource::make($this->id),
