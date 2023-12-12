@@ -3,41 +3,47 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\MemberClassResource;
-use App\Models\memberClass;
-use App\Http\Requests\StorememberClassRequest;
-use App\Http\Requests\UpdatememberClassRequest;
+use App\Models\MemberClass;
+use App\Http\Requests\StoreMemberClassRequest;
+use App\Http\Requests\UpdateMemberClassRequest;
+use Illuminate\Http\Request;
 
 class MemberClassController extends Controller
 {
 
-    public function index()
-    {
-        return MemberClassResource::collection(memberClass::all());
-    }
+	public function index(Request $request)
+	{
+		$menmber_id = $request->member_id ?? null;
+		$MemberClass = MemberClass::query();
+		if (!empty($menmber_id)) {
+			$MemberClass->where("member_id", $menmber_id);
+		}
+		return MemberClassResource::collection($MemberClass->get());
+	}
 
-    public function store(StorememberClassRequest $request)
-    {
-        $memberClass = memberClass::create($request->validated());
-        // return MemberClassResource::make($memberClass);
-        return new MemberClassResource($memberClass);
-    }
+	public function store(StoreMemberClassRequest $request)
+	{
+		$MemberClass = MemberClass::create($request->validated());
+		// return MemberClassResource::make($MemberClass);
+		return new MemberClassResource($MemberClass);
+	}
 
-    public function show(memberClass $memberClass)
-    {
-        return MemberClassResource::make($memberClass);
-    }
-
-
-    public function update(UpdatememberClassRequest $request, memberClass $memberClass)
-    {
-        $memberClass->update($request->validated());
-        return MemberClassResource::make($memberClass);
-    }
+	public function show(MemberClass $MemberClass)
+	{
+		return MemberClassResource::make($MemberClass);
+	}
 
 
-    public function destroy(memberClass $memberClass)
-    {
-        $memberClass->delete();
-        return response()->noContent();
-    }
+	public function update(UpdateMemberClassRequest $request, MemberClass $MemberClass)
+	{
+		$MemberClass->update($request->validated());
+		return MemberClassResource::make($MemberClass);
+	}
+
+
+	public function destroy(MemberClass $MemberClass)
+	{
+		$MemberClass->delete();
+		return response()->noContent();
+	}
 }

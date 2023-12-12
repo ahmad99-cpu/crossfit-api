@@ -3,33 +3,39 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\GymClassResource;
-use App\Models\gymClass;
-use App\Http\Requests\StoregymClassRequest;
-use App\Http\Requests\UpdategymClassRequest;
+use App\Models\GymClass;
+use App\Http\Requests\StoreGymClassRequest;
+use App\Http\Requests\UpdateGymClassRequest;
 
-class GymClassController extends Controller {
+class GymClassController extends Controller
+{
 
-	public function index() {
-		return GymClassResource::collection(gymClass::all());
+	public function index()
+	{
+		return GymClassResource::collection(GymClass::all());
 	}
 
-	public function store(StoregymClassRequest $request) {
-		$gymClass = gymClass::create($request->validated());
+	public function store(StoreGymClassRequest $request)
+	{
+		$GymClass = GymClass::create($request->validated());
 
-		return GymClassResource::make($gymClass);
+		return GymClassResource::make($GymClass);
 	}
 
-	public function show(gymClass $gymClass) {
-		return GymClassResource::make($gymClass);
+	public function show(GymClass $GymClass)
+	{
+		return GymClassResource::make($GymClass);
 	}
 
-	public function update(UpdategymClassRequest $request, gymClass $gymClass) {
-		$gymClass->update($request->validated());
-		return GymClassResource::make($gymClass);
+	public function update(UpdateGymClassRequest $request, GymClass $GymClass)
+	{
+		$GymClass->update($request->validated());
+		return GymClassResource::make($GymClass);
 	}
 
-	public function destroy(gymClass $gymClass) {
-		$gymClass->delete();
+	public function destroy(GymClass $GymClass)
+	{
+		$GymClass->delete();
 		return response()->noContent();
 	}
 }

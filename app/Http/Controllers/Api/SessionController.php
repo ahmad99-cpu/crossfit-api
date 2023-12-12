@@ -3,40 +3,43 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\SessionResource;
-use App\Models\session;
-use App\Http\Requests\StoresessionRequest;
-use App\Http\Requests\UpdatesessionRequest;
+use App\Models\Session;
+use App\Http\Requests\StoreSessionRequest;
+use App\Http\Requests\UpdateSessionRequest;
 
 class SessionController extends Controller
 {
 
-    public function index()
-    {
-        return SessionResource::collection(session::all());
-    }
-
-
-    public function store(StoresessionRequest $request)
-    {
-        $session = session::create($request->validated());
-        // return SessionResource::make($session);
-        return new SessionResource($session);
-    }
-
-
-	public function show(session $session) {
-		return SessionResource::make($session);
+	public function index()
+	{
+		return SessionResource::collection(Session::all());
 	}
 
 
-	public function update(UpdatesessionRequest $request, session $session) {
-		$session->update($request->validated());
-		return SessionResource::make($session);
+	public function store(StoreSessionRequest $request)
+	{
+		$Session = Session::create($request->validated());
+		// return SessionResource::make($Session);
+		return new SessionResource($Session);
 	}
 
 
-	public function destroy(session $session) {
-		$session->delete();
+	public function show(Session $Session)
+	{
+		return SessionResource::make($Session);
+	}
+
+
+	public function update(UpdateSessionRequest $request, Session $Session)
+	{
+		$Session->update($request->validated());
+		return SessionResource::make($Session);
+	}
+
+
+	public function destroy(Session $Session)
+	{
+		$Session->delete();
 		return response()->noContent();
 	}
 }

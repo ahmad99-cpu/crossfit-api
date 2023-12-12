@@ -3,42 +3,42 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\PersonalTrainerResource;
-use App\Models\personalTrainer;
-use App\Http\Requests\StorepersonalTrainerRequest;
-use App\Http\Requests\UpdatepersonalTrainerRequest;
+use App\Models\PersonalTrainer;
+use App\Http\Requests\StorePersonalTrainerRequest;
+use App\Http\Requests\UpdatePersonalTrainerRequest;
 
 class PersonalTrainerController extends Controller
 {
 
-    public function index()
-    {
-        return PersonalTrainerResource::collection(personalTrainer::all());
-    }
+	public function index()
+	{
+		return PersonalTrainerResource::collection(PersonalTrainer::all());
+	}
 
 
-    public function store(StorepersonalTrainerRequest $request)
-    {
-        $personalTrainer = personalTrainer::create($request->validated());
-        return PersonalTrainerResource::make($personalTrainer);
-    }
+	public function store(StorePersonalTrainerRequest $request)
+	{
+		$PersonalTrainer = PersonalTrainer::create($request->validated());
+		return PersonalTrainerResource::make($PersonalTrainer);
+	}
 
 
-    public function show(personalTrainer $personalTrainer)
-    {
-        return PersonalTrainerResource::make($personalTrainer);
-    }
+	public function show(PersonalTrainer $PersonalTrainer)
+	{
+		return PersonalTrainerResource::make($PersonalTrainer);
+	}
 
 
-    public function update(UpdatepersonalTrainerRequest $request, personalTrainer $personalTrainer)
-    {
-        $personalTrainer->updated($request->validated());
-        return PersonalTrainerResource::make($personalTrainer);
-    }
+	public function update(UpdatePersonalTrainerRequest $request, PersonalTrainer $PersonalTrainer)
+	{
+		$PersonalTrainer->updated($request->validated());
+		return PersonalTrainerResource::make($PersonalTrainer);
+	}
 
 
-    public function destroy(personalTrainer $personalTrainer)
-    {
-        $personalTrainer->delete();
-        return response()->noContent();
-    }
+	public function destroy(PersonalTrainer $PersonalTrainer)
+	{
+		$PersonalTrainer->delete();
+		return response()->noContent();
+	}
 }

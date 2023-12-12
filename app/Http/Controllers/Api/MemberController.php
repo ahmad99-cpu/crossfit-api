@@ -3,40 +3,40 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\MemberResource;
-use App\Models\member;
-use App\Http\Requests\StorememberRequest;
-use App\Http\Requests\UpdatememberRequest;
+use App\Models\Member;
+use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\UpdateMemberRequest;
 
 class MemberController extends Controller
 {
 
 	public function index()
 	{
-		return MemberResource::collection(member::all());
+		return MemberResource::collection(Member::all());
 	}
 
-	public function store(StorememberRequest $request)
+	public function store(StoreMemberRequest $request)
 	{
-		$member = member::create($request->validated());
-		return MemberResource::make($member);
-	}
-
-
-	public function show(member $member)
-	{
-		return MemberResource::make($member);
+		$Member = Member::create($request->validated());
+		return MemberResource::make($Member);
 	}
 
 
-	public function update(UpdatememberRequest $request, member $member)
+	public function show(Member $Member)
 	{
-		$member->update($request->validated());
-		return MemberResource::make($member);
+		return MemberResource::make($Member);
 	}
 
-	public function destroy(member $member)
+
+	public function update(UpdateMemberRequest $request, Member $Member)
 	{
-		$member->delete();
+		$Member->update($request->validated());
+		return MemberResource::make($Member);
+	}
+
+	public function destroy(Member $Member)
+	{
+		$Member->delete();
 		return response()->noContent();
 	}
 }
