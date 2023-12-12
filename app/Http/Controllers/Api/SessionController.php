@@ -12,7 +12,7 @@ class SessionController extends Controller
 
 	public function index()
 	{
-		return SessionResource::collection(Session::all());
+		return SessionResource::collection(Session::all())->groupBy('day');
 	}
 
 
