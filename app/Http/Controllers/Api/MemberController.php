@@ -6,13 +6,20 @@ use App\Http\Resources\MemberResource;
 use App\Models\Member;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
+use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
 
-	public function index()
+	public function index(Request $request)
 	{
-		return MemberResource::collection(Member::all());
+		$email = $request->email ?? null;
+		$password = $request->password ?? null;
+		$Member = Member::query();
+		if (!empty($email) && !empty($password)) {
+			$Member = Member::where("email", $email)->where("password", $password);
+		}
+		return MemberResource::collection($Member->get());
 	}
 
 	public function store(StoreMemberRequest $request)
