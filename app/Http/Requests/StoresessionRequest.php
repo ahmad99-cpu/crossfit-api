@@ -25,8 +25,8 @@ class StoreSessionRequest extends FormRequest
 	{
 		return [
 			'day' => 'required|string',
-			'startTime' => 'required|string',
-			'endTime' => 'required|string',
+			'start_time' => 'required|string',
+			'end_time' => 'required|string',
 			'instructor_id' => 'required|exists:instructors,id',
 			'gym_class_id' => 'required|exists:gym_classes,id',
 		];

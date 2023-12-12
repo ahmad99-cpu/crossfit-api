@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::apiResource('/gym-classes', GymClassController::class);
+Route::apiResource('/gym_classes', GymClassController::class);
 Route::apiResource('/products', ProductController::class);
 Route::apiResource('/members', MemberController::class);
 Route::apiResource('/instructors', InstructorController::class);
-Route::apiResource('/personal-trainers', PersonalTrainerController::class);
+Route::apiResource('/personal_trainers', PersonalTrainerController::class);
 Route::apiResource('/sessions', SessionController::class);
-Route::apiResource('/member-classes', MemberClassController::class);
+Route::apiResource('/member_classes', MemberClassController::class);
 Route::apiResource('/bookings', BookingController::class);
 
 

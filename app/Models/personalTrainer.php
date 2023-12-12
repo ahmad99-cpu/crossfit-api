@@ -9,6 +9,6 @@ class PersonalTrainer extends Model
 {
 	use HasFactory;
 
-	protected $fillable = ['id', 'name', 'phoneNumber', 'created_at', 'updated_at'];
+	protected $fillable = ['id', 'name', 'phone_number', 'created_at', 'updated_at'];
 	protected $table = 'personal_trainers';
 }
