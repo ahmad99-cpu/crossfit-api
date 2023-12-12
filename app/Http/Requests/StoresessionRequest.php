@@ -24,6 +24,7 @@ class StoreSessionRequest extends FormRequest
 	public function rules()
 	{
 		return [
+			'day' => 'required|string',
 			'startTime' => 'required|string',
 			'endTime' => 'required|string',
 			'instructor_id' => 'required|exists:instructors,id',

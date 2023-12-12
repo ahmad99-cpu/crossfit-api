@@ -10,7 +10,7 @@ class Session extends Model
 {
 	use HasFactory;
 
-	protected $fillable = ['id', 'startTime', 'endTime', 'instructor_id', 'gym_class_id', 'created_at', 'updated_at'];
+	protected $fillable = ['id', 'day', 'startTime', 'endTime', 'instructor_id', 'gym_class_id', 'created_at', 'updated_at'];
 	protected $table = 'sessions';
 
 	public function instructor()
@@ -21,10 +21,5 @@ class Session extends Model
 	public function gymClass()
 	{
 		return $this->belongsTo(GymClass::class);
-	}
-
-	public function gymClasses()
-	{
-		return $this->hasMany(memberClass::class, 'session_id');
 	}
 }

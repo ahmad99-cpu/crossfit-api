@@ -14,6 +14,6 @@ class Member extends Model
 
 	public function gymClasses()
 	{
-		return $this->hasMany(memberClass::class, 'member_id');
+		return $this->hasMany(MemberClass::class, 'member_id');
 	}
 }
