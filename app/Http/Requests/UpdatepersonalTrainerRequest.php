@@ -2,29 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePersonalTrainerRequest extends FormRequest
+class UpdatePersonalTrainerRequest extends StorePersonalTrainerRequest
 {
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return false;
-	}
-
-	/**
-	 * Get the validation rules that apply to the request.
-	 *
-	 * @return array<string, mixed>
-	 */
-	public function rules()
-	{
-		return [
-			//
-		];
-	}
 }
