@@ -13,8 +13,7 @@ class SessionResource extends JsonResource
 		return [
 			'id' => $this->id,
 			'day' => $this->day,
-			'start_time' => $this->start_time,
-			'end_time' => $this->end_time,
+			'period' => $this->period,
 			'instructor' => new InstructorResource($this->instructor),
 			'gym_class' => new GymClassResource($this->gymClass),
 		];

@@ -10,7 +10,7 @@ class Session extends Model
 {
 	use HasFactory;
 
-	protected $fillable = ['id', 'day', 'start_time', 'end_time', 'instructor_id', 'gym_class_id', 'created_at', 'updated_at'];
+	protected $fillable = ['id', 'day', 'period', 'instructor_id', 'gym_class_id', 'created_at', 'updated_at'];
 	protected $table = 'sessions';
 
 	public function instructor()
