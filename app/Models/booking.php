@@ -15,11 +15,11 @@ class Booking extends Model
 
 	public function personalTrainer()
 	{
-		return $this->belongsTo(PersonalTrainer::class, 'personal_trainer_id');
+		return $this->belongsTo(PersonalTrainer::class);
 	}
 
 	public function member()
 	{
-		return $this->belongsTo(Member::class, 'member_id');
+		return $this->belongsTo(Member::class);
 	}
 }
