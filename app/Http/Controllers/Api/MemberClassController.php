@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 class MemberClassController extends Controller
 {
-
+	private $loadWith = ['member'];
 	public function index(Request $request)
 	{
 		$menmber_id = $request->member_id ?? null;
-		$MemberClass = MemberClass::query();
+		$MemberClass = MemberClass::query()->with($this->loadWith);
 		if (!empty($menmber_id)) {
 			$MemberClass->where("member_id", $menmber_id);
 		}
@@ -24,13 +24,12 @@ class MemberClassController extends Controller
 	public function store(StoreMemberClassRequest $request)
 	{
 		$MemberClass = MemberClass::create($request->validated());
-		// return MemberClassResource::make($MemberClass);
-		return new MemberClassResource($MemberClass);
+		return MemberClassResource::make($MemberClass);
 	}
 
 	public function show(MemberClass $MemberClass)
 	{
-		return MemberClassResource::make($MemberClass);
+		return MemberClassResource::make($MemberClass->load($this->loadWith));
 	}
 
 

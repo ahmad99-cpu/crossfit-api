@@ -14,8 +14,8 @@ class SessionResource extends JsonResource
 			'id' => $this->id,
 			'day' => $this->day,
 			'period' => $this->period,
-			'instructor' => new InstructorResource($this->instructor),
-			'gym_class' => new GymClassResource($this->gymClass),
+			'instructor' => InstructorResource::make($this->instructor),
+			'gym_class' => GymClassResource::make($this->gymClass),
 		];
 	}
 }

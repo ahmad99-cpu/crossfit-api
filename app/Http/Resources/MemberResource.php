@@ -20,6 +20,7 @@ class MemberResource extends JsonResource
 			'phone_number' => $this->phone_number,
 			'email' => $this->email,
 			'password' => $this->password,
+			'classes' => MemberClassResource::collection($this->gymClasses),
 		];
 	}
 }
