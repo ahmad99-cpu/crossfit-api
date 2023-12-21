@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\PersonalTrainerController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\MemberClassController;
+use App\Http\Controllers\Api\MemberSessionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::apiResource('/personal_trainers', PersonalTrainerController::class);
 Route::apiResource('/sessions', SessionController::class);
 Route::apiResource('/member_classes', MemberClassController::class);
 Route::apiResource('/bookings', BookingController::class);
+Route::apiResource('/member_sessions', MemberSessionController::class);
 
 
 
