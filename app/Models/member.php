@@ -13,4 +13,9 @@ class Member extends Model
 	{
 		return $this->hasMany(MemberClass::class, 'member_id');
 	}
+
+	public function sessions()
+	{
+		return $this->belongsToMany(Session::class, 'member_classes', 'member_id');
+	}
 }
