@@ -13,7 +13,7 @@ class StoreMemberSessionRequest extends FormRequest
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -24,7 +24,7 @@ class StoreMemberSessionRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'session_id' => 'required|exists:session,id',
+			'session_id' => 'required|exists:sessions,id',
 			'member_id' => 'required|exists:members,id',
 		];
 	}
