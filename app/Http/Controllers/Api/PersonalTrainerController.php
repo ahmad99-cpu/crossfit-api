@@ -31,7 +31,7 @@ class PersonalTrainerController extends Controller
 
 	public function update(UpdatePersonalTrainerRequest $request, PersonalTrainer $PersonalTrainer)
 	{
-		$PersonalTrainer->updated($request->validated());
+		$PersonalTrainer->update($request->validated());
 		return PersonalTrainerResource::make($PersonalTrainer);
 	}
 
