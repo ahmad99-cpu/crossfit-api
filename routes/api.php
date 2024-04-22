@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\PersonalTrainerController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\MemberClassController;
+use App\Http\Controllers\Api\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,8 @@ Route::apiResource('/personal_trainers', PersonalTrainerController::class);
 Route::apiResource('/sessions', SessionController::class);
 Route::apiResource('/member_classes', MemberClassController::class);
 Route::apiResource('/bookings', BookingController::class);
-
-
+Route::get('/schedule', [SessionController::class, 'schedule']);
+Route::post('/upload', [FileUpload::class, 'fileUpload']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 	return $request->user();

@@ -36,6 +36,13 @@ class SessionController extends Controller
 		return SessionResource::make($Session);
 	}
 
+	public function schedule(){
+		return collect(SessionResource::collection(Session::all())->groupBy('day'))->map(
+			function ($v) {
+				return $v->pluck('instrctor', 'period');
+			}
+		);
+	}
 
 	public function destroy(Session $Session)
 	{
