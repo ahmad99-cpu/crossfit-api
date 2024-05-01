@@ -25,7 +25,7 @@ class StoreSessionRequest extends FormRequest
 	{
 		return [
 			'day' => 'required|string',
-			'period' => 'required|integer',
+			'period' => 'required|string',
 			'instructor_id' => 'required|exists:instructors,id',
 			'gym_class_id' => 'required|exists:gym_classes,id',
 		];

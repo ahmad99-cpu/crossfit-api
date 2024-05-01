@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Controllers\Api\SessionController;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MemberResource extends JsonResource
@@ -20,7 +21,7 @@ class MemberResource extends JsonResource
 			'phone_number' => $this->phone_number,
 			'email' => $this->email,
 			'password' => $this->password,
-			'sessions' => SessionResource::collection($this->sessions)->groupBy('day'),
+			'sessions' => (new SessionController)->scheduleFormat($this->sessions),
 		];
 	}
 }

@@ -19,7 +19,7 @@ class FileUpload extends Controller
             $fileModel->file_path = '/storage/' . $filePath;
 						$req->file->move(public_path('\media'), $fileName);
             $fileModel->save();
-            return $fileName;
+            return ['data'=>$fileName];
         }
    }
 }

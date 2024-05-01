@@ -37,16 +37,20 @@ class SessionController extends Controller
 	}
 
 	public function schedule(){
-		return collect(SessionResource::collection(Session::all())->groupBy('day'))->map(
-			function ($v) {
-				return $v->pluck('instrctor', 'period');
-			}
-		);
+		return $this->scheduleFormat(Session::all());
 	}
 
 	public function destroy(Session $Session)
 	{
 		$Session->delete();
 		return response()->noContent();
+	}
+
+	public function scheduleFormat($sessions) {
+		return collect(SessionResource::collection($sessions)->groupBy('day'))->map(
+			function ($v) {
+				return $v->keyBy('period');
+			}
+		);
 	}
 }

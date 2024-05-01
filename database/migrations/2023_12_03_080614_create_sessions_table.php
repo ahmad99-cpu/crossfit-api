@@ -15,7 +15,7 @@ return new class extends Migration {
 		Schema::create('sessions', function (Blueprint $table) {
 			$table->id();
 			$table->string('day');
-			$table->integer('period');
+			$table->string('period');
 			$table->foreignId('instructor_id')->nullable()->constrained()->cascadeOnDelete();
 			$table->foreignId('gym_class_id')->nullable()->constrained()->cascadeOnDelete();
 			$table->timestamps();
